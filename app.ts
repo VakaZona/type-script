@@ -1,33 +1,23 @@
-enum StatusCode {
-	SUCCESS = 1,
-	IN_PROGRESS = 2,
-	FAILED = 3,
+enum QuestionStatus {
+	PUBLISHED = 'published',
+	DRAFT = 'draft',
+	DELETED = 'deleted',
 }
 
-const res = {
-	message: 'Success',
-	statusCode: StatusCode.SUCCESS,
-};
-
-if (res.statusCode === StatusCode.SUCCESS) {
-
+async function getFaqs(req: {
+	topicId: number;
+	status: QuestionStatus;
+}): Promise<{
+	question: string;
+	answer: string;
+	tags: [string];
+	likes: number;
+	status: QuestionStatus;
+}[]> {
+	const res = await fetch('/faqs', {
+		method: 'POST',
+		body: JSON.stringify(req),
+	})
+	const data = await res.json();
+	return data;
 }
-
-function action(status: StatusCode) {
-	 
-}
- 
-action(StatusCode.SUCCESS);
-action(1);
-
-function compute() {
-	return 3;
-}
-
-enum Roles {
-	ADMIN = 1,
-	USER = compute(),
-}
-
-
-
