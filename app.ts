@@ -1,37 +1,18 @@
-function logId(id: string | number | boolean) {
-	if (typeof id === 'string') {
-		console.log(id);
-	} else if (typeof id === 'number'){
-		console.log(id);
-	} else {
-		console.log(id);
-	}
+// enum RequestType {
+// 	GET = 'get',
+// 	POST = 'post',
+// }
+
+// function fetchWithAuth(url: string, method: RequestType) {
+	
+// }
+
+function fetchWithAuth(url: string, method: 'post' | 'get'): 1 | -1 {
+	return 1;
 }
 
-function logError(err: string | string[]) {
-	if (Array.isArray(err)) {
-		console.log(err);
-	} else {
-		console.log(err.toLowerCase)
-	}
-}
+fetchWithAuth('url', 'post');
 
-function logObject(obj: { a: number } | { b: number }) {
-	if ('a' in obj) {
-		console.log(obj.a);
-	} else {
-		console.log(obj.b);
-	}
-}
+let method = 'post';
 
-function logMultipleId(a: string | number, b: string | boolean) {
-	if (a === b) {
-		
-	} else {
-		console.log(a)
-	}
-}
-
-logId(1);
-logId('123');
-logId(true);
+fetchWithAuth('url', method as 'post');
