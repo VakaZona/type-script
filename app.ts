@@ -1,23 +1,37 @@
-enum QuestionStatus {
-	PUBLISHED = 'published',
-	DRAFT = 'draft',
-	DELETED = 'deleted',
+function logId(id: string | number | boolean) {
+	if (typeof id === 'string') {
+		console.log(id);
+	} else if (typeof id === 'number'){
+		console.log(id);
+	} else {
+		console.log(id);
+	}
 }
 
-async function getFaqs(req: {
-	topicId: number;
-	status: QuestionStatus;
-}): Promise<{
-	question: string;
-	answer: string;
-	tags: [string];
-	likes: number;
-	status: QuestionStatus;
-}[]> {
-	const res = await fetch('/faqs', {
-		method: 'POST',
-		body: JSON.stringify(req),
-	})
-	const data = await res.json();
-	return data;
+function logError(err: string | string[]) {
+	if (Array.isArray(err)) {
+		console.log(err);
+	} else {
+		console.log(err.toLowerCase)
+	}
 }
+
+function logObject(obj: { a: number } | { b: number }) {
+	if ('a' in obj) {
+		console.log(obj.a);
+	} else {
+		console.log(obj.b);
+	}
+}
+
+function logMultipleId(a: string | number, b: string | boolean) {
+	if (a === b) {
+		
+	} else {
+		console.log(a)
+	}
+}
+
+logId(1);
+logId('123');
+logId(true);
