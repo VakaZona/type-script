@@ -7,12 +7,40 @@
 	
 // }
 
-function fetchWithAuth(url: string, method: 'post' | 'get'): 1 | -1 {
-	return 1;
+// type httpMethod = 'post' | 'get';
+// type coolString = string;
+
+// function fetchWithAuth(url: string, method: httpMethod): 1 | -1 {
+// 	return 1;
+// }
+
+// fetchWithAuth('url', 'post');
+
+// let method = 'post';
+
+// fetchWithAuth('url', method as 'post');
+
+type User = {
+	name: string;
+	age: number;
+	skills: string[];
 }
 
-fetchWithAuth('url', 'post');
+let user: User = {
+	name: 'asd',
+	age: 33,
+	skills: ['1', '2']
+}
 
-let method = 'post';
+type Role = {
+	id: number;
+}
 
-fetchWithAuth('url', method as 'post');
+type UserWithRole = User & Role;
+
+let user2: UserWithRole= {
+	name: 'asd',
+	age: 33,
+	skills: ['1', '2'],
+	id: 1,
+}
